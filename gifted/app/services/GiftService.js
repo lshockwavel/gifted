@@ -43,7 +43,10 @@ class GiftService {
 
   // Maybe?
   async removeGift(giftId) {
-    await api.delete(`api/gifts/${giftId}`);
+    const response = await api.delete(`api/gifts/${giftId}`);
+    console.log('Gift removed:', response.data);
+    AppState.gifts = AppState.gifts.filter(g => g.id !== giftId);
+    AppState.emit('gifts'); // Trigger the drawGifts method in GiftController
   }
 }
 

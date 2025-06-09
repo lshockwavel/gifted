@@ -18,7 +18,7 @@
 <body>
   <!-- SECTION -->
   <header>
-    <nav class="navbar navbar-dark navbar-expand bg-dark text-light px-2">
+    <nav class="navbar navbar-dark navbar-expand bg-success text-light px-2">
       <a class="navbar-brand" href="#">
         <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt=""
           loading="lazy">
@@ -42,8 +42,8 @@
   <main>
     <div class="container-fluid">
       <section class="row">
-        <div class="col-md-3">
-          <div class="bg-success">
+        <div class="col-md-3 bg-success d-none" id="gift-forms">
+          <div class="bg-success sticky-top">
             <form onsubmit="app.GiftController.createGift(event)" class="text-light p-3" id="gift-create-form">
               <div class="m-2">
                 <label for="tag">Tag</label>
@@ -60,7 +60,7 @@
               </div>
             </form>
             <hr>
-            <form onsubmit="app.GiphyController.createSearch(event)">
+            <form onsubmit="app.GiphyController.createSearch(event)" class="text-light p-3">
               <div class="m-2">
                 <label for="search">Search Giphy</label>
                 <input type="text" class="form-control" id="search" name="search" placeholder="Search Giphy"

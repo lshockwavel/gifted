@@ -15,14 +15,17 @@ export class GiftController {
     this.drawCreateGift();
 
     AppState.on('user', this.getGifts);
+    AppState.on('user', this.showGiftForms);
     AppState.on('gifts', this.drawGifts);
     AppState.on('ActiveGiphy', this.drawGifts)
 
     // this.getGifts();
   }
 
-
-  //WIP Will need to massage the methods
+  showGiftForms() {
+    let giftForm = document.getElementById('gift-forms');
+    giftForm.classList.remove('d-none');
+  }
 
   //GET Gifts
   async getGifts() {
@@ -66,6 +69,20 @@ export class GiftController {
     } catch (error) {
         Pop.toast(`Error opening gift. Status: ${error.response?.status || 'unknown'}`);
         console.error('Error opening gift:', error);
+    }
+  }
+
+  async deleteGift(id) {
+    try {
+        console.log('Deleting gift with ID:', id);
+        const confirmation = confirm('Are you sure you want to delete this gift?');
+        if (confirmation) {
+            await giftService.removeGift(id);
+        }
+        Pop.toast('Gift deleted successfully');
+    } catch (error) {
+      Pop.toast(`Error deleting gift. Status: ${error.response?.status || 'unknown'}`);
+      console.error('Error deleting gift:', error);
     }
   }
 }

@@ -16,12 +16,12 @@ export class Gift {
         if (this.opened) {
             return /*html */ `
                 <div class="col-md-4">
-              <div class="card">
-                <img src="${this.url}" alt="${this.tag}">
+              <div class="card m-2">
+                <img src="${this.url}" alt="${this.tag}" class="card-img-top">
                 <div class="card-body d-flex justify-content-between align-items-center text-center">
                     <span class="badge text-black">${this.tag}</span>
                     <button class="btn btn-link text-danger p-0 ms-2" title="Delete" onclick="app.GiftController.deleteGift('${this.id}')">
-                        <i class="mdi mdi-close-circle-outline fs-4">(WIP)</i>
+                        <i class="mdi mdi-close-circle-outline fs-4"></i>
                     </button>
                 </div>
               </div>
