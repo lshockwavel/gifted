@@ -29,6 +29,7 @@ class GiftService {
     //setting the profileIdsOpened to include the current user's id
     const response = await api.put(`api/gifts/${giftId}`, openedGift);
     console.log('Gift opened:', response.data);
+    openedGift.url = response.data.url
 
     AppState.emit('gifts'); //Trigger the drawGifts method in GiftController
   }
